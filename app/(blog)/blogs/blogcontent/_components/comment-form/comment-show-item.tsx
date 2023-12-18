@@ -37,7 +37,9 @@ export const CommentShowItem = async ({
           <p className="text-sm font-medium text-muted-foreground">
             {comment.user.name}
           </p>
-          <p className="text-neutral-900">{comment.content}</p>
+          <p className="text-neutral-900 dark:text-slate-300">
+            {comment.content}
+          </p>
         </div>
         <CreateCommentForm
           postId={postId}

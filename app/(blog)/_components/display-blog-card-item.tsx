@@ -24,10 +24,10 @@ export const DisplayBlogCardItem = ({ post }: CardProps) => {
         </Link>
       </div>
       <div className="max-w-[350px] ">
-        <h2 className="text-xl font-bold text-neutral-800 mt-4 mb-2 line-clamp-1">
+        <h2 className="text-xl font-bold text-neutral-800 mt-4 mb-2 line-clamp-1 dark:text-slate-200">
           {post.title}
         </h2>
-        <p className="text-sm text-neutral-600 mb-2 line-clamp-1">
+        <p className="text-sm text-neutral-600 mb-2 line-clamp-1 dark:text-slate-500">
           {post.subtitle}
         </p>
         <div className="flex items-center">
@@ -36,14 +36,14 @@ export const DisplayBlogCardItem = ({ post }: CardProps) => {
               <AvatarImage src={post.user.image || ""} />
               <AvatarFallback>CN</AvatarFallback>
             </Avatar>
-            <p className="text-muted-foreground text-xs font-semibold">
+            <p className="text-muted-foreground text-xs font-semibold dark:text-gray-500">
               {post.user.name}
             </p>
           </div>
           <span>
             <Dot className="h-4 w-4 text-muted-foreground font-semibold" />
           </span>
-          <p className="text-muted-foreground text-xs">
+          <p className="text-muted-foreground text-xs dark:text-slate-600">
             {new Date(post.create_at).toLocaleString()}
           </p>
         </div>

@@ -25,9 +25,11 @@ export const HighLightBlog = async ({ fetchData }: HighLightBlogProps) => {
         </Link>
       </div>
       <div className="w-full mt-3">
-        <h2 className="text-xl font-semibold">{lastPosted?.title}</h2>
+        <h2 className="text-xl font-semibold dark:text-slate-200">
+          {lastPosted?.title}
+        </h2>
         <div className="flex items-center gap-x-1 w-full">
-          <Avatar>
+          <Avatar className="-z-50">
             <AvatarImage src={lastPosted?.user.image || ""} />
             <AvatarFallback>CN</AvatarFallback>
           </Avatar>
