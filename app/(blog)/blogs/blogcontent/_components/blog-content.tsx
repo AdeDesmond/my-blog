@@ -52,7 +52,7 @@ export const BlogContent = ({ post }: BlogContentProps) => {
           className="object-fit lg:object-cover md:object-cover -z-10 lg:rounded-lg md:rounded-lg"
         />
       </div>
-      <p className=" first-letter:uppercase first-letter:font-bold first-letter:text-2xl px-4 first-line:font-semibold">
+      <p className=" first-letter:uppercase first-letter:font-bold first-letter:text-2xl px-4 first-line:font-semibold dark:text-slate-500">
         {post.content}
       </p>
     </div>

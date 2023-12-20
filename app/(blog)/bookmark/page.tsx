@@ -1,5 +1,5 @@
 import React from "react";
 
 export default function BookMarkPage() {
-  return <div>BookMarkPage</div>;
+  return <div>Still to be implemented</div>;
 }

@@ -235,4 +235,97 @@ Renowned for their intelligence and social nature, parrots thrive in flocks, exh
 
 
 
+///Pagination///// pages/api/posts.js
+
+const postsData = [
+  // Sample blog post data
+  // Replace this with your actual blog post data
+  // Each object should represent a blog post
+  { id: 1, title: 'Post 1', content: 'Content for post 1' },
+  { id: 2, title: 'Post 2', content: 'Content for post 2' },
+  // ... more posts
+  { id: 10, title: 'Post 10', content: 'Content for post 10' },
+  // Add more posts here...
+];
+
+export default function handler(req, res) {
+  const { page = 1, limit = 5 } = req.query;
+
+  const parsedPage = parseInt(page);
+  const parsedLimit = parseInt(limit);
+
+  const startIndex = (parsedPage - 1) * parsedLimit;
+  const endIndex = parsedPage * parsedLimit;
+
+  const paginatedPosts = postsData.slice(startIndex, endIndex);
+
+  const totalPages = Math.ceil(postsData.length / parsedLimit);
+
+  if (parsedPage < 1 || parsedPage > totalPages) {
+    return res.status(404).json({ message: 'Page not found' });
+  }
+
+  res.status(200).json({ posts: paginatedPosts, totalPages });
+}
+
+// pages/index.js
+
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
+
+const Home = () => {
+  const [posts, setPosts] = useState([]);
+  const [totalPages, setTotalPages] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const res = await fetch(`/api/posts?page=${currentPage}`);
+        if (!res.ok) {
+          throw new Error('Failed to fetch');
+        }
+        const data = await res.json();
+        setPosts(data.posts);
+        setTotalPages(data.totalPages);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchPosts();
+  }, [currentPage]);
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
+
+  return (
+    <div>
+    
+      {posts.map((post) => (
+        <div key={post.id}>
+          <h2>{post.title}</h2>
+          <p>{post.content}</p>
+        </div>
+      ))}
+
+      / Pagination /
+      <div>
+        {Array.from({ length: totalPages }, (_, i) => (
+          <Link key={i} href={`/?page=${i + 1}`}>
+            <a onClick={() => handlePageChange(i + 1)}>{i + 1}</a>
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default Home;
+
+
+
+
+
 */
