@@ -2,7 +2,7 @@ import React from "react";
 
 export default function AboutUsPage() {
   return (
-    <div className="max-w-[400px] lg:max-w-[800px] flex items-center justify-center mx-auto">
+    <div className="max-w-[400px] lg:max-w-[800px] flex items-center justify-center mx-auto min-h-screen">
       <div>
         <p className="mt-6 border p-4 border-slate-400 rounded-lg">
           <span className="text-2xl font-bold">At my-blog</span>, we are

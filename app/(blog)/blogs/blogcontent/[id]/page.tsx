@@ -17,7 +17,7 @@ interface BlogPageContentIdProps {
 async function BlogContentIdPage({ params }: BlogPageContentIdProps) {
   const post = await fetchPostWithFullContent(params.id);
   return (
-    <section className="w-full mb-[10rem]">
+    <section className="w-full mb-[10rem] min-h-screen">
       <div className="w-full bg-rose-200 h-14 -mt-2 flex items-center justify-start ">
         <GoBackButton />
       </div>

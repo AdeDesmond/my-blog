@@ -34,7 +34,7 @@ export const PostItemCard = ({ post }: PostItemCardProps) => {
   return (
     <Card className="w-[400px]">
       <CardHeader>
-        <Link href={`/blogs/blogcontent/${post.id}`}>
+        <Link href={`/blogs/edit/${post.id}`}>
           <CardTitle className="text-xl line-clamp-1">{post.title}</CardTitle>
         </Link>
         <CardDescription className="line-clamp-1">
@@ -43,7 +43,7 @@ export const PostItemCard = ({ post }: PostItemCardProps) => {
       </CardHeader>
       <CardContent>
         <div className="w-[400px] ">
-          <Link href={`/blogs/blogcontent/${post.id}`}>
+          <Link href={`/blogs/edit/${post.id}`}>
             <Image
               src={post.image}
               alt="blog image"
