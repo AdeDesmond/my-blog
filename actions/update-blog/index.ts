@@ -2,6 +2,8 @@
 
 import { auth } from "@/auth";
 import { updateBlogSchema } from "./schema";
+import { db } from "@/db/db-client";
+import { revalidatePath } from "next/cache";
 
 interface UpdateFormState {
   errors?: {
@@ -15,6 +17,7 @@ interface UpdateFormState {
 }
 
 export async function updateBlog(
+  postId: string,
   formState: UpdateFormState,
   formData: FormData
 ): Promise<UpdateFormState> {
@@ -30,7 +33,7 @@ export async function updateBlog(
     title: formData.get("title"),
     subtitle: formData.get("subtitle"),
     content: formData.get("content"),
-    image: formData.get("image"),
+    categoryId: formData.get("category"),
   });
 
   if (!validatedState.success) {
@@ -39,11 +42,22 @@ export async function updateBlog(
     };
   }
 
-  const { title, subtitle, content, image } = validatedState.data;
+  const { title, subtitle, content, categoryId } = validatedState.data;
 
   let dataToUpdate;
 
   try {
+    dataToUpdate = await db.posts.update({
+      where: {
+        id: postId,
+      },
+      data: {
+        title,
+        subtitle,
+        content,
+        categoryId,
+      },
+    });
   } catch (error: unknown) {
     if (error instanceof Error) {
       return {
@@ -59,6 +73,8 @@ export async function updateBlog(
       };
     }
   }
+
+  revalidatePath("/");
 
   return {
     success: true,
