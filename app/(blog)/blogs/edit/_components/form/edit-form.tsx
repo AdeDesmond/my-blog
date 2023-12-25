@@ -46,7 +46,12 @@ export const EditForm = ({ catData, post, postId }: EditFormProps) => {
       action={dispatchUpdate}
       className="flex flex-col gap-y-1 w-[50%] mx-auto"
     >
-      <Label htmlFor="title">title</Label>
+      <Label
+        htmlFor="title"
+        className="text-xl font-semibold text-muted-foreground uppercase"
+      >
+        title
+      </Label>
       <Input
         type="text"
         name="title"
@@ -54,6 +59,12 @@ export const EditForm = ({ catData, post, postId }: EditFormProps) => {
         placeholder="Update the title"
         defaultValue={post.title || ""}
       />
+      <Label
+        htmlFor="category"
+        className="text-xl font-semibold text-muted-foreground uppercase"
+      >
+        Category
+      </Label>
       <select
         name="category"
         id="category"
@@ -66,7 +77,12 @@ export const EditForm = ({ catData, post, postId }: EditFormProps) => {
           </option>
         ))}
       </select>
-      <Label htmlFor="subtitle">subtitle</Label>
+      <Label
+        htmlFor="subtitle"
+        className="text-xl font-semibold text-muted-foreground uppercase"
+      >
+        subtitle
+      </Label>
 
       <Input
         type="text"
@@ -75,7 +91,12 @@ export const EditForm = ({ catData, post, postId }: EditFormProps) => {
         placeholder="Update the subtitle"
         defaultValue={post.subtitle || ""}
       />
-      <Label htmlFor="content">Content</Label>
+      <Label
+        htmlFor="content"
+        className="text-xl font-semibold text-muted-foreground uppercase"
+      >
+        Content
+      </Label>
       <Textarea
         name="content"
         id="content"
