@@ -4,11 +4,16 @@ import React from "react";
 import { PostItemCard } from "../blogs/_components/post-item-card";
 import { BookMarkBlogItem } from "../blogs/blogcontent/_components/bookmark-blog";
 import { DeleteBookMark } from "./_component/form/delete-bookmark";
+import { AlertDemo } from "./_component/form/login-dialog";
 
 export default async function BookMarkPage() {
   const session = await auth();
   if (!session?.user || !session) {
-    return;
+    return (
+      <div className="min-h-screen w-full flex items-center justify-center">
+        <AlertDemo />
+      </div>
+    );
   }
   const bookmarkedData = await fetchAllBookMarks(session.user.id);
   const renderedBookMarkedBlogs = bookmarkedData.map((post) => {

@@ -16,7 +16,7 @@ export default async function EditBlogPage({ params }: EditPageProps) {
     return data;
   });
   return (
-    <div>
+    <div className="min-h-screen pt-[8rem] pb-[5rem]">
       <EditForm catData={categories} post={uneditedData} postId={params.id} />
     </div>
   );

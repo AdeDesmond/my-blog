@@ -24,7 +24,7 @@ export const CommentShowItem = async ({
     <CommentShowItem key={child.id} commentId={child.id} postId={postId} />
   ));
   return (
-    <div className="p-4 mt-5 border mb-1 rounded-md ">
+    <div className="p-4 mt-5 border mb-1 rounded-md z-10 dark:border-white border-slate-950">
       <div className="flex gap-3">
         <Image
           src={comment.user.image || ""}
