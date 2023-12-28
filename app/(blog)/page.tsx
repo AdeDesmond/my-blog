@@ -5,7 +5,10 @@ import { fetchPostsData } from "@/db/queries/posts/query-post";
 import { DisplayBlogCard } from "./_components/display-blog-card";
 import { Separator } from "@/components/ui/separator";
 import { AllBlogPosts } from "./_components/all-blogs";
-import { HighLightLoadingSkeleton } from "./_components/loading-skeletons/high-light-skeleton";
+import {
+  DisplayTopThreeBlogs,
+  HighLightLoadingSkeleton,
+} from "./_components/loading-skeletons/high-light-skeleton";
 
 export default function BlogHomePage() {
   return (
@@ -25,7 +28,9 @@ export default function BlogHomePage() {
         </Suspense>
       </div>
       <div className="lg:max-w-[1200px] md:max-w-[800px] mx-auto mt-20">
-        <DisplayBlogCard fetchData={fetchPostsData} />
+        <Suspense fallback={<DisplayTopThreeBlogs />}>
+          <DisplayBlogCard fetchData={fetchPostsData} />
+        </Suspense>
         <Separator />
         <p className="font-medium text-muted-foreground text-sm mt-3 mb-2 ml-4">
           All Blogs Posts

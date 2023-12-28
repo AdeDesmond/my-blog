@@ -1,7 +1,10 @@
+"use client";
+
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Dot } from "lucide-react";
 import Image from "next/image";
 import { BookMarkBlogItem } from "./bookmark-blog";
+import { useState } from "react";
 
 interface BlogContentProps {
   post: {
@@ -23,9 +26,14 @@ interface BlogContentProps {
 }
 
 export const BlogContent = ({ post }: BlogContentProps) => {
+  const [isBookMark, setIsBookMark] = useState(false);
   return (
     <div>
-      <BookMarkBlogItem />
+      <BookMarkBlogItem
+        postId={post.id}
+        isBookMark={isBookMark}
+        onBookMark={setIsBookMark}
+      />
       <h1 className="mb-4 text-center text-xl font-bold  ">{post.title}</h1>
       <div className="flex items-center mb-5 justify-center">
         <div className="flex items-center gap-x-1">

@@ -20,3 +20,19 @@ export const HighLightLoadingSkeleton = () => {
     </div>
   );
 };
+
+export const DisplayTopThreeBlogs = function () {
+  return (
+    <div className="flex items-center gap-1">
+      <div className="max-w-[400px] h-[400px]">
+        <Skeleton className="w-full h-full" />
+      </div>
+      <div className="max-w-[400px] h-[400px]">
+        <Skeleton className="w-full h-full" />
+      </div>
+      <div className="max-w-[400px] h-[400px]">
+        <Skeleton className="w-full h-full" />
+      </div>
+    </div>
+  );
+};
