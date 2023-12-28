@@ -39,8 +39,8 @@ export const PostItemCard = ({ post, deleteButton }: PostItemCardProps) => {
   const pathName = usePathname();
   const changeRoutes = pathName === "/bookmark" ? "blogcontent" : "edit";
   return (
-    <Card className="w-[400px] relative group">
-      <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
+    <Card className="w-[400px] relative group ">
+      <div className=" absolute top-0 right-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
         {deleteButton}
       </div>
       <CardHeader>
@@ -52,7 +52,7 @@ export const PostItemCard = ({ post, deleteButton }: PostItemCardProps) => {
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <div className="w-[400px] ">
+        <div className="w-[400px] cursor-pointer">
           <Link href={`/blogs/${changeRoutes}/${post.id}`}>
             <Image
               src={post.image}

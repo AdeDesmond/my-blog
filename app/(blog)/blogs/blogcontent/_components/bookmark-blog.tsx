@@ -29,12 +29,11 @@ export const BookMarkBlogItem = ({
       toast.success("bookmark successful");
     }
   }, [state]);
-  console.log(state);
   return (
     <div className="flex items-center justify-center">
       <form action={dispatch}>
         <Button size="sm" variant="ghost">
-          {isBookMark ? (
+          {state.success ? (
             <BookCheck className="h-5 w-5 text-muted-foreground" />
           ) : (
             <BookHeart className="h-5 w-5 text-muted-foreground" />

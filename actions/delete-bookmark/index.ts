@@ -1,5 +1,6 @@
 "use server";
 
+import { auth } from "@/auth";
 import { db } from "@/db/db-client";
 import { revalidatePath } from "next/cache";
 
@@ -14,6 +15,14 @@ export async function deleteBookMark(
   id: string,
   formState: DeleteBookMarkProps
 ): Promise<DeleteBookMarkProps> {
+  const session = await auth();
+  if (!session?.user || !session) {
+    return {
+      errors: {
+        _form: ["You must be logged in to perform this action"],
+      },
+    };
+  }
   let boookmarkedBlogToDelete;
   try {
     boookmarkedBlogToDelete = await db.boomarks.delete({

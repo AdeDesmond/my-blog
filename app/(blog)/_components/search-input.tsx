@@ -10,7 +10,7 @@ export const SearchInput = () => {
     <div className="">
       <form
         action={search}
-        className="w-[300px] flex items-center border border-neutral-400 group rounded-lg pl-2 lg:w-[500px] md:w-[400px] overflow-hidden"
+        className=" bg-white w-[300px] flex items-center border border-neutral-400 group rounded-lg pl-2 lg:w-[500px] md:w-[400px] overflow-hidden"
       >
         <SearchIcon className="h-5 w-5 text-rose-400" />
         <input

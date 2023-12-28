@@ -29,7 +29,7 @@ export const CatForm = () => {
   }, [state]);
   return (
     <Dialog>
-      <DialogTrigger asChild>
+      <DialogTrigger className="ml-[47rem]" asChild>
         <Button size="sm">Create Category</Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[400px] lg:max-w-[500px]">

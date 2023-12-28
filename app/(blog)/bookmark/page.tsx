@@ -33,7 +33,7 @@ export default async function BookMarkPage() {
     );
   });
   return (
-    <div className="grid place-items-center lg:grid-cols-3 md:grid-cols-1 lg:max-w-[1500px] mx-auto relative min-h-screen">
+    <div className="grid place-items-center lg:grid-cols-3 md:grid-cols-2 lg:max-w-[1500px] mx-auto min-h-screen gap-2 pt-[5rem] pb-[10rem]">
       {renderedBookMarkedBlogs}
       <div className="hidden" hidden>
         {bookMarkState}

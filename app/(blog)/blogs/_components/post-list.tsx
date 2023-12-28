@@ -11,7 +11,7 @@ export const PostList = async ({ fetchData }: PostListProps) => {
     <PostItemCard key={post.id} post={post} />
   ));
   return (
-    <div className="grid grid-cols-1 gap-1 place-items-center mt-2 lg:grid-cols-3 md:grid-cols-2 lg:max-w-[80%] lg:mx-auto">
+    <div className="grid grid-cols-1 gap-1 place-items-center mt-2 lg:grid-cols-3 md:grid-cols-2 lg:max-w-[80%] lg:mx-auto -z-50">
       {renderedPosts}
     </div>
   );

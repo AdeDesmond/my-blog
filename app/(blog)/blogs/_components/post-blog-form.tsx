@@ -18,6 +18,7 @@ import { Spinner } from "@/components/spinners";
 import Image from "next/image";
 import { createBlogPost } from "@/actions/create-blog";
 import { ElementRef, useEffect, useRef } from "react";
+import { ImageIcon } from "lucide-react";
 
 interface PostBlogFormProps {
   catData: Category[];
@@ -47,7 +48,10 @@ export const PostBlogForm = ({ catData }: PostBlogFormProps) => {
   }, [photoState]);
   return (
     <Dialog>
-      <DialogTrigger asChild>
+      <DialogTrigger
+        className="ml-[2.5rem] lg:ml-[15.5rem] md:ml-[3.5rem]"
+        asChild
+      >
         <Button>Post Blog</Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[400px] lg:max-w-[600px] md:max-w-[500px]">
@@ -189,7 +193,10 @@ export const PostBlogForm = ({ catData }: PostBlogFormProps) => {
             <CatSubmitButton>Confirm Blog Submit </CatSubmitButton>
           </form>
           {photoState.photoLink === "" ? (
-            <Spinner />
+            <div className="mt-2 mb-2 flex items-center gap-x-1">
+              <ImageIcon className="w-6 h-6" />
+              upload a blog image
+            </div>
           ) : (
             <Image
               src={photoState.photoLink || ""}

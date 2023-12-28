@@ -6,7 +6,7 @@ import { CatShowLoading } from "./_components/cat-show-loading";
 
 export default function CategoryPage() {
   return (
-    <div className="w-full min-h-screen">
+    <div className="w-full min-h-screen pt-[5rem]">
       <CatForm />
       <div className="px-6 w-full flex items-center justify-center">
         <Suspense fallback={<CatShowLoading />}>

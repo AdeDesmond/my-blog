@@ -10,9 +10,9 @@ export default async function BlogsPage() {
     return data;
   });
   return (
-    <div className="w-full mb-[10rem] min-h-screen">
+    <div className="w-full pb-[10rem] min-h-screen pt-[4rem]">
       <PostBlogForm catData={categoryToBeSelected} />
-      <div>
+      <div className="z-[-999]">
         <Suspense fallback={<PostShowSkeletons />}>
           <PostList fetchData={fetchPostsData} />
         </Suspense>

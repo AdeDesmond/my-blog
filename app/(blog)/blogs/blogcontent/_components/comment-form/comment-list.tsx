@@ -14,7 +14,7 @@ export const CommentsList = async ({ postId }: CommentsListProps) => {
     <CommentShowItem key={comment.id} commentId={comment.id} postId={postId} />
   ));
   return (
-    <div className="space-y-3 mt-4">
+    <div className="space-y-3 mt-4 ">
       <h2>All {comments.length} comments</h2>
       {renderedTopComments}
     </div>
