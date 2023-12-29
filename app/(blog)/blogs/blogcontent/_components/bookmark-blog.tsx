@@ -27,6 +27,8 @@ export const BookMarkBlogItem = ({
   useEffect(() => {
     if (state.success) {
       toast.success("bookmark successful");
+    } else {
+      state.errors?._form?.map((error) => toast.error(error));
     }
   }, [state]);
   return (

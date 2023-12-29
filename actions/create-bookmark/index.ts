@@ -34,13 +34,24 @@ export async function createBookMark(
       },
     });
 
-    blogToBookMark = await db.boomarks.create({
-      data: {
-        postId,
-        userId: session.user.id,
-        isBookMarked: true,
-      },
-    });
+    if (alreadyBookMarked) {
+      return {
+        errors: {
+          _form: ["already bookmarked"],
+        },
+      };
+    }
+
+    if (!alreadyBookMarked) {
+      blogToBookMark = await db.boomarks.create({
+        data: {
+          postId,
+          userId: session.user.id,
+          isBookMarked: true,
+        },
+      });
+    }
+
     //
     //if (!alreadyBookMarked && !alreadyBookMarked.isBookMarked) {
     //
