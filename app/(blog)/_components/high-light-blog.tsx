@@ -20,7 +20,7 @@ export const HighLightBlog = async ({ fetchData }: HighLightBlogProps) => {
             alt="blog image"
             width={350}
             height={350}
-            className="object-cover rounded-lg cursor-pointer"
+            className="object-cover rounded-lg cursor-pointer hover:scale-105 hover:shadow-lg focus:scale-95 focus:shadow-sm transition-all duration-250 ease-in-out hover:-translate-x-3"
           />
         </Link>
       </div>

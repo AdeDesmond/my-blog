@@ -19,7 +19,7 @@ export const DisplayBlogCardItem = ({ post }: CardProps) => {
             alt="blog card"
             width={350}
             height={350}
-            className="object-cover rounded-lg"
+            className="object-cover rounded-lg hover:scale-105 hover:shadow-lg focus:scale-95 focus:shadow-sm transition-all duration-250 ease-in-out"
           />
         </Link>
       </div>
@@ -27,7 +27,10 @@ export const DisplayBlogCardItem = ({ post }: CardProps) => {
         <h2 className="text-xl font-bold text-neutral-800 mt-4 mb-2 line-clamp-1 dark:text-slate-200">
           {post.title}
         </h2>
-        <p className="text-sm text-neutral-600 mb-2 line-clamp-1 dark:text-slate-500">
+        <p
+          className="text-sm text-muted-foreground font-medium mb-2 line-clamp-1 dark:text-slate-500"
+          style={{ color: post.color }}
+        >
           {post.subtitle}
         </p>
         <div className="flex items-center">

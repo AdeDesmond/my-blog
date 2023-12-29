@@ -31,7 +31,7 @@ export default function BlogHomePage() {
         <Suspense fallback={<DisplayTopThreeBlogs />}>
           <DisplayBlogCard fetchData={fetchPostsData} />
         </Suspense>
-        <Separator />
+        <Separator className="text-slate-900 z-50 w-full" />
         <p className="font-medium text-muted-foreground text-sm mt-3 mb-2 ml-4">
           All Blogs Posts
         </p>

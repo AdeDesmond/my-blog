@@ -19,7 +19,7 @@ export const SearchInput = () => {
           id="term"
           placeholder="Search our blogs by tops and keywords"
           className="outline-none placeholder:text-sm placeholder:font-semibold px-3 py-2 focus:ring-0 focus:ring-slate-900 w-full"
-          defaultValue={searchParams.get("term") || " "}
+          defaultValue={searchParams.get("term") || ""}
         />
       </form>
     </div>

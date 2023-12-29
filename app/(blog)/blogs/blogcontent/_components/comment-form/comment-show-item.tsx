@@ -1,9 +1,6 @@
 import Image from "next/image";
 import { CreateCommentForm } from "./create-form-comment";
-import {
-  fetchCommentsByPostId,
-  CommentsWithAuthor,
-} from "@/db/queries/comments/query-comments";
+import { fetchCommentsByPostId } from "@/db/queries/comments/query-comments";
 
 interface CommentShowProps {
   commentId?: string;
@@ -37,7 +34,7 @@ export const CommentShowItem = async ({
           <p className="text-sm font-medium text-muted-foreground">
             {comment.user.name}
           </p>
-          <p className="text-neutral-900 dark:text-slate-300">
+          <p className="text-neutral-600 dark:text-slate-300 font-semibold">
             {comment.content}
           </p>
         </div>

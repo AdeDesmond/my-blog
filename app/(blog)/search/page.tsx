@@ -14,7 +14,7 @@ async function SearchPage({ searchParams }: SearchPageProps) {
     redirect("/");
   }
   return (
-    <div>
+    <div className="min-h-screen pt-10">
       <PostList fetchData={() => fetchPostsWithSearchTerm(term)} />
     </div>
   );

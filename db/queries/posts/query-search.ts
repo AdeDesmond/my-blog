@@ -5,15 +5,6 @@ export const fetchPostsWithSearchTerm = (
   term: string
 ): Promise<PostWithData[]> => {
   return db.posts.findMany({
-    where: {
-      OR: [
-        {
-          title: { contains: term },
-          subtitle: { contains: term },
-          content: { contains: term },
-        },
-      ],
-    },
     include: {
       user: {
         select: {
@@ -22,8 +13,14 @@ export const fetchPostsWithSearchTerm = (
         },
       },
     },
-    orderBy: {
-      create_at: "desc",
+    where: {
+      OR: [
+        {
+          title: { contains: term, mode: "insensitive" },
+          subtitle: { contains: term, mode: "insensitive" },
+          content: { contains: term, mode: "insensitive" },
+        },
+      ],
     },
   });
 };
