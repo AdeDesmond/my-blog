@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import localfont from "next/font/local";
 import "./globals.css";
 import { NextAuthProvider } from "./providers/next-auth-provider";
 import { ThemeProvider } from "./providers/dark-mode-provider";
 import { siteConfig } from "@/config/site";
 
-const inter = Inter({ subsets: ["latin"] });
+const fallbackFont = localfont({
+  src: "../public/fonts/Roboto-Light.ttf",
+});
 
 export const metadata: Metadata = {
   title: {
@@ -28,7 +30,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={fallbackFont.className}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
